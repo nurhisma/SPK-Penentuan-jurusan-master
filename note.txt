@@ -1,0 +1,42 @@
+index.php digunakan untuk bgian utama, 
+dibagian index , hanya bagian body yang berubah ,dengan menggunakan fungsi switch
+
+misal kita pencet home maka url 
+http://localhost/spK-penentu_jurusan/index.php?halaman=home
+halaman pada swith bernilai home jadi yang dipanggil home.php
+
+dihlaman home terdapat tombol untuk mengecek nilai
+jika ditekan maka url menjadi
+http://localhost/spK-penentu_jurusan/index.php?halaman=nilai
+halaman pada swith bernilai 'nilai' jadi yang dipanggil data_diri.php
+
+jika user belum pernah mengisi nilai maka harus mengisi data diri terlebih dahulu..
+
+jika user sudah mengisi data diri tapi belum mengisi nilai maka bisa di cek di panel Cek NISN
+
+jika user sudah pernah mengisi namun ingin melihat nilainya kembali maka bisa di menu bawahnya yaitu cek Nilai/cek histori
+
+==
+1.belum mengisi data diri
+setelah di submit maka masuk ke imput_dtdiri.php dan dimasukkan ke data base,,
+lalu mengalihkan halaman ke
+http://localhost/spK-penentu_jurusan/index.php?halaman=input_nilai&nisn=
+dengan mengirim varibel nisn menggunakan get dan di switch halaman=input_nilai maka ditampilkan form_nilai.php
+
+setelah megisi nilai maka masuk ke
+http://localhost/spK-penentu_jurusan/index.php?halaman=proses&nisn=765
+di switch memangil proses.php serta mengirim variabel nisn menggunakan get
+sebelum ditampilkan ,nilai di insert ke database 
+
+
+2.sudah mengisi data diri namun belum mengisi nilai
+di form data diri dibagian cek nisn ,ada list yang datanya diambil dari database setelah dipilih makadikirim ke ceknisn.php lalu nim dialihkan lagi kehalaman 
+index.php?halaman=input_nilai&nisn='.$nisn
+
+3.sudah  mengisi data diri dan nilai
+sama seperti bagian 2... namun url
+http://localhost/spK-penentu_jurusan/index.php?halaman=dataku&id=11
+maka halaman yang ditampilkan dataku.php dengan id nilai 11 
+
+
+
